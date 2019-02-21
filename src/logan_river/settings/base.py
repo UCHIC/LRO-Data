@@ -144,3 +144,9 @@ STATIC_URL = '/static/'
 STATIC_ROOT = config["static_root"]
 
 SITE_ID = 1
+
+
+# Logan River Specific Configuration
+
+GET_SITES_SERVICE = config['waterml_service_urls']['get_sites']
+GET_SITE_INFO_SERVICE = config['waterml_service_urls']['get_site_info']
