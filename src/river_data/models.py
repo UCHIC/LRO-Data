@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Site(models.Model):
-    site_code = models.CharField(max_length=50, unique=True)
+    site_code = models.CharField(max_length=50, primary_key=True)
     site_name = models.CharField(max_length=255)
     elevation_m = models.FloatField(blank=True, null=True)
     latitude = models.FloatField()
@@ -17,11 +17,11 @@ class Site(models.Model):
         return f'{self.site_name}'
 
     def __repr__(self) -> str:
-        return f'({self.id}, {self.site_code}, {self.site_name})'
+        return f'({self.site_code}, {self.site_name})'
 
 
 class Series(models.Model):
-    registration = models.ForeignKey('Site', related_name='series', on_delete=models.CASCADE)
+    site = models.ForeignKey('Site', related_name='series', on_delete=models.CASCADE)
     variable_code = models.CharField(max_length=50)
     variable_name = models.CharField(max_length=255)
     unit_name = models.CharField(max_length=255)
