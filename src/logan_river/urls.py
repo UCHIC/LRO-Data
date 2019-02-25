@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from river_data.views import SitesView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', SitesView.as_view(), name='logan_river_sites'),
 ]

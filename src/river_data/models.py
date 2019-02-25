@@ -33,3 +33,9 @@ class Series(models.Model):
 
     def __repr__(self) -> str:
         return f'({self.id}, {self.variable_code}, {self.unit_name}, {self.sampled_medium})'
+
+#
+# class SitePhoto(models.Model):
+#     site = models.ForeignKey('Site', related_name='photos', on_delete=models.CASCADE)
+#     photo = models.FileField(upload_to='')
+#
