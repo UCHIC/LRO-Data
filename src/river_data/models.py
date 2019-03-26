@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 
 
@@ -12,6 +13,7 @@ class Site(models.Model):
     county = models.CharField(max_length=255)
     watershed = models.CharField(max_length=255)
     site_type = models.CharField(max_length=255)
+    active = models.BooleanField()
 
     def __str__(self) -> str:
         return f'{self.site_name}'
@@ -27,6 +29,11 @@ class Series(models.Model):
     unit_name = models.CharField(max_length=255)
     unit_abbreviation = models.CharField(max_length=255)
     sampled_medium = models.CharField(max_length=255)
+    identifier = models.CharField(max_length=50, default='')
+
+    @property
+    def influx_values_url(self) -> str:
+        return settings.GET_VALUES_SERVICE.format(series_identifier=self.identifier)
 
     def __str__(self) -> str:
         return f'{self.variable_code}'

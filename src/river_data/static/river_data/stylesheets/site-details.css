@@ -1,0 +1,144 @@
+#map {
+    height: 100%;
+}
+
+div.map-container {
+    height: 456px !important;
+}
+
+.plot_box {
+    width: 100%;
+    margin-bottom: 30px;
+    border-radius: 2px;
+}
+
+.plot_box .variable-title {
+    font-weight: 500;
+    margin: 0;
+}
+
+.plot_box .mdl-card__supporting-text {
+    color: rgba(0, 0, 0, 0.8);
+    padding: 15px !important;
+    margin: 0 !important;
+    width: 100% !important;
+}
+
+svg.stale {
+    background-color: #ffefef;
+}
+
+svg.not-stale {
+    background-color: #ebffe8;
+}
+
+.last-observation {
+    font-weight: bold;
+    display: block;
+}
+
+.text-black {
+    color: rgb(34, 34, 34);
+}
+
+.help-icon {
+    font-size: 18px;
+    line-height: 0;
+    vertical-align: sub;
+    cursor: default;
+}
+
+.button-link:hover {
+    text-decoration: none;
+}
+
+.buttons-toolbar .button-link, .buttons-toolbar button {
+    margin-bottom: 15px;
+}
+
+.buttons-toolbar {
+    margin-top: -30px;
+}
+
+.table-trigger {
+    cursor: pointer;
+}
+
+.table-trigger.disabled, .download-trigger.disabled, .tsa-trigger.disabled {
+    pointer-events: none;
+}
+
+.measurements-table {
+    max-height: 350px;
+    overflow: auto;
+}
+
+.measurements-table .mdl-data-table tbody tr:hover {
+    background-color: initial;
+}
+
+table.sensors td:not([data-behavior]), table.macroinvertebrate td:not([data-behavior]){
+    white-space: normal;
+}
+
+.variable-name {
+    font-size: 0.8em;
+}
+
+.variable-info {
+    font-size: 0.8em;
+}
+
+.variable-info td {
+    padding-right: 10px;
+    padding-bottom: 3px;
+    vertical-align: top
+}
+
+.variable-data {
+    width: 100%;
+}
+
+.plot_box .variable-data span {
+    line-height: 16px;
+    padding: 0;
+    margin-bottom: 3px;
+}
+
+.graph-container {
+    border: 1px solid #DDD;
+    height: 120px;
+    margin-bottom: 5px;
+}
+
+.plot_box div p {
+    text-align: center;
+    line-height: 12px;
+    padding: 2px 0 0 0;
+}
+
+.plot_box div p + p {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.plot_box a {
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.plot_box .x.axis path {
+    display: none;
+}
+
+.line {
+    fill: none;
+    stroke-width: 2px;
+}

@@ -150,3 +150,4 @@ SITE_ID = 1
 
 GET_SITES_SERVICE = config['waterml_service_urls']['get_sites']
 GET_SITE_INFO_SERVICE = config['waterml_service_urls']['get_site_info']
+GET_VALUES_SERVICE = config['influxdb_values_url']
