@@ -28,7 +28,8 @@ class Command(BaseCommand):
             state=site_info.find('.//cuahsi:siteProperty[@name="State"]', self.ns).text,
             county=site_info.find('.//cuahsi:siteProperty[@name="County"]', self.ns).text,
             site_type=site_info.find('.//cuahsi:siteProperty[@name="Site Type"]', self.ns).text,
-            watershed=self.watershed
+            watershed=self.watershed,
+            active=True
         )
 
     def parse_series_xml(self, series_element: Element) -> List[Series]:
@@ -36,12 +37,17 @@ class Command(BaseCommand):
         series: List[Series] = []
         site_code: str = series_element.find('.//cuahsi:site//cuahsi:siteInfo//cuahsi:siteCode', self.ns).text
         for series_xml in series_element.findall('.//cuahsi:site//cuahsi:seriesCatalog//cuahsi:series', self.ns):
+            qc_id: str = series_xml.find('.//cuahsi:qualityControlLevel', self.ns).attrib['qualityControlLevelID']
+            source_id: str = series_xml.find('.//cuahsi:source', self.ns).attrib['sourceID']
+            method_id: str = series_xml.find('.//cuahsi:method', self.ns).attrib['methodID']
+            variable_code: str = series_xml.find('.//cuahsi:variable//cuahsi:variableCode', self.ns).text
             series.append(Series(
-                variable_code=series_xml.find('.//cuahsi:variable//cuahsi:variableCode', self.ns).text,
+                variable_code=variable_code,
                 variable_name=series_xml.find('.//cuahsi:variable//cuahsi:variableName', self.ns).text,
                 unit_name=series_xml.find('.//cuahsi:variable//cuahsi:unit//cuahsi:unitName', self.ns).text,
                 unit_abbreviation=series_xml.find('.//cuahsi:variable//cuahsi:unit//cuahsi:unitAbbreviation', self.ns).text,
                 sampled_medium=series_xml.find('.//cuahsi:variable//cuahsi:sampleMedium', self.ns).text,
+                identifier=f'{site_code}_{variable_code}_{qc_id}_{source_id}_{method_id}',
                 site_id=site_code
             ))
         return series
