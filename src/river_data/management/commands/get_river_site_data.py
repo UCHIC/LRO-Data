@@ -38,6 +38,9 @@ class Command(BaseCommand):
         site_code: str = series_element.find('.//cuahsi:site//cuahsi:siteInfo//cuahsi:siteCode', self.ns).text
         for series_xml in series_element.findall('.//cuahsi:site//cuahsi:seriesCatalog//cuahsi:series', self.ns):
             qc_id: str = series_xml.find('.//cuahsi:qualityControlLevel', self.ns).attrib['qualityControlLevelID']
+            if not is_raw_quality(qc_id):
+                continue
+
             source_id: str = series_xml.find('.//cuahsi:source', self.ns).attrib['sourceID']
             method_id: str = series_xml.find('.//cuahsi:method', self.ns).attrib['methodID']
             variable_code: str = series_xml.find('.//cuahsi:variable//cuahsi:variableCode', self.ns).text
@@ -56,7 +59,7 @@ class Command(BaseCommand):
         response: requests.Response = requests.get(settings.GET_SITES_SERVICE)
         return ElementTree.fromstring(response.text)
 
-    def get_site_variables(self, site_code) -> Element:
+    def get_site_variables(self, site_code: str) -> Element:
         response: requests.Response = requests.get(settings.GET_SITE_INFO_SERVICE.format(site_code=site_code))
         return ElementTree.fromstring(response.text)
 
@@ -79,3 +82,7 @@ class Command(BaseCommand):
         Site.objects.bulk_create(sites, batch_size=self.batch_size)
         Series.objects.bulk_create(series, batch_size=self.batch_size)
         print('- done!')
+
+
+def is_raw_quality(quality_code: str) -> bool:
+    return quality_code == '0'
