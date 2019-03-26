@@ -32,6 +32,10 @@
     {% block styles %}
         <link rel="stylesheet"
               href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+        <link rel="stylesheet"
+              href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+        <link rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-blue.min.css">
         <link rel="stylesheet" href="{% static 'river_data/stylesheets/common.css' %}">
@@ -45,25 +49,65 @@
 <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
-        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+        <div class="mdl-layout__header-row top-menu mdl-color--usu-blue mdl-grid">
+            <div class="mdl-cell brand mdl-cell--9-col">
+                <a href="https://www.usu.edu/" class="mdl-layout__tab">
+                    <img class="usuLogo" src="https://ouresources.usu.edu/_resources/assets/images/horizontal_logo_small.png" alt="Utah State University Logo">
+                </a>
+            </div>
+            <div class="mdl-cell top-menu--right mdl-cell--3-col">
+                <a href="" class="mdl-layout__tab">A-Z Index</a>
+                <a href="" class="mdl-layout__tab">MyUSU</a>
+                <a href="" class="mdl-layout__tab">Directory</a>
+            </div>
         </div>
-        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
-            <h3>Logan River Observatory</h3>
+        <div class="mdl-layout__header-row mdl-color--white mdl-color-text--blue-grey-900 main-header">
+            <a href="https://uwrl.usu.edu/lro/index.php">
+                <img class="img-responsive logo-left" src="https://uwrl.usu.edu/lro/images/lro-header.png" alt="Logan River Observatory" width="450" title="" style="">
+            </a>
         </div>
-        <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
-            <a href="" class="mdl-layout__tab">About</a>
-            <a href="" class="mdl-layout__tab">People</a>
-            <a href="" class="mdl-layout__tab">Partners</a>
-            <a href="" class="mdl-layout__tab is-active">Sites & Infrastructure</a>
-            <a href="" class="mdl-layout__tab">Data</a>
-            <a href="" class="mdl-layout__tab">Research</a>
-            <a href="" class="mdl-layout__tab">Educational Resources</a>
-            <a href="" class="mdl-layout__tab">Contact</a>
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--clear-grey-blue external-navigation">
+            <a href="https://uwrl.usu.edu/lro/about/history" class="mdl-layout__tab">About</a>
+            <a href="https://uwrl.usu.edu/lro/updatedpeople/faculty" class="mdl-layout__tab">People</a>
+            <a href="https://uwrl.usu.edu/lro/partners" class="mdl-layout__tab">Partners</a>
+            <a href="https://uwrl.usu.edu/lro/locations" class="mdl-layout__tab">Sites & Infrastructure</a>
+            <a href="{% url 'logan_river_sites' %}" class="mdl-layout__tab">Data</a>
+            <a href="https://uwrl.usu.edu/lro/research" class="mdl-layout__tab">Research</a>
+            <a href="https://uwrl.usu.edu/lro/resources" class="mdl-layout__tab">Educational Resources</a>
+            <a href="https://uwrl.usu.edu/lro/contact" class="mdl-layout__tab">Contact</a>
         </div>
     </header>
-    {% block content %} {% endblock %}
+    <main class="mdl-layout__content">
+        <div class="mdl-layout__tab-panel is-active">
+            <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+                {% block content %} {% endblock %}
+            </section>
+            <section class="section--footer mdl-mega-footer mdl-color--usu-blue mdl-grid">
+                <div class="section__text mdl-cell mdl-cell--12-col footer-links">
+                    <a href="https://uwrl.usu.edu/lro/research">Research</a>
+                    <a href="https://uwrl.usu.edu/lro/about/history">History</a>
+                    <a href="https://uwrl.usu.edu/lro/partners">Partners</a>
+                    <a href="https://uwrl.usu.edu/lro/contact">Contact</a>
+                    <a href="https://uwrl.usu.edu/lro/resources">Resources</a>
+                </div>
+                <hr class="mdl-cell--12-col">
+                <div class="section__text mdl-cell mdl-cell--8-col global-footer">
+                    <a href="https://www.usu.edu/copyright">© Utah State University</a>
+                    <a href="https://www.usu.edu/privacy/">Privacy</a>
+                    <a href="https://www.usu.edu/campus-life/safety">Safety</a>
+                    <a href="https://accessibility.usu.edu/">Accessibility</a>
+                    <a href="https://aaeo.usu.edu/non-discrimination">Non-discrimination</a>
+                    <a href="https://engineering.usu.edu/feedback">Website Feedback</a>
+                    <a id="de" href="http://a.cms.omniupdate.com/10?skin=usu&amp;account=usu&amp;site=UWRL&amp;action=de&amp;path=/lro/locations.pcf">Admin</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
 </div>
 {% block scripts %}
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 {% endblock %}
 </body>
