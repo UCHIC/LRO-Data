@@ -23,6 +23,11 @@ html, body {
     height: 100%;
 }
 
+a {
+    -webkit-transition: .2s;
+    transition: .2s;
+}
+
 table.shade-first-col tr td:first-child {
     background: #c2c2c21a;
 }
@@ -382,10 +387,14 @@ table.shade-first-col tr td:first-child {
     text-transform: none;
     text-decoration: none;
     padding: 10px 15px;
-    line-height: normal;
+    line-height: 34px;
     align-self: center;
-    height: auto;
+    height: 100%;
     border-left: 1px solid transparent;
+}
+
+.external-navigation a:hover, .external-navigation a.active {
+    background-color: #eff2f7;
 }
 
 .mdl-layout__tab-bar {
