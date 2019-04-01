@@ -28,6 +28,11 @@ a {
     transition: .2s;
 }
 
+h1, h2, h3, h4 {
+    font-family: 'Roboto Condensed',Arial,Helvetica,sans-serif;
+    color: #384660;
+}
+
 table.shade-first-col tr td:first-child {
     background: #c2c2c21a;
 }
@@ -69,11 +74,6 @@ table.shade-first-col tr td:first-child {
 .mdl-demo .mdl-layout__tab-bar .mdl-layout__tab.is-active::after {
     background-color: white;
     height: 4px;
-}
-
-.mdl-demo main > .mdl-layout__tab-panel {
-    padding: 8px;
-    padding-top: 48px;
 }
 
 .mdl-demo .mdl-card {
@@ -138,9 +138,32 @@ table.shade-first-col tr td:first-child {
     margin-bottom: 48px;
 }
 
-.mdl-demo section.section--center {
-    max-width: 860px;
+@media (min-width: 768px) {
+    .main-container {
+        width: 750px;
+    }
 }
+
+@media (min-width: 992px) {
+    .main-container {
+        width: 970px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .main-container {
+        width: 1170px;
+    }
+}
+
+.main-container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+}
+
 
 .mdl-demo #features section.section--center {
     max-width: 620px;

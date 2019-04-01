@@ -51,7 +51,7 @@
     {% endblock %}
 </head>
 
-<body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+<body class="mdl-demo mdl-color-text--grey-700 mdl-base">
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--usu-blue">
         <div class="mdl-layout__header-row top-menu mdl-grid">
@@ -89,32 +89,36 @@
             <a href="https://uwrl.usu.edu/lro/contact" class="mdl-layout__tab">Contact</a>
         </div>
     </header>
-    <main class="mdl-layout__content">
+    <main class="mdl-layout__content main-container">
         <div class="mdl-layout__tab-panel is-active">
-            <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <section class="section--center mdl-grid mdl-grid--no-spacing">
                 {% block content %} {% endblock %}
-            </section>
-            <section class="section--footer mdl-mega-footer mdl-color--usu-blue mdl-grid">
-                <div class="section__text mdl-cell mdl-cell--12-col footer-links">
-                    <a href="https://uwrl.usu.edu/lro/research">Research</a>
-                    <a href="https://uwrl.usu.edu/lro/about/history">History</a>
-                    <a href="https://uwrl.usu.edu/lro/partners">Partners</a>
-                    <a href="https://uwrl.usu.edu/lro/contact">Contact</a>
-                    <a href="https://uwrl.usu.edu/lro/resources">Resources</a>
-                </div>
-                <hr class="mdl-cell--12-col">
-                <div class="section__text mdl-cell mdl-cell--8-col global-footer">
-                    <a href="https://www.usu.edu/copyright">© Utah State University</a>
-                    <a href="https://www.usu.edu/privacy/">Privacy</a>
-                    <a href="https://www.usu.edu/campus-life/safety">Safety</a>
-                    <a href="https://accessibility.usu.edu/">Accessibility</a>
-                    <a href="https://aaeo.usu.edu/non-discrimination">Non-discrimination</a>
-                    <a href="https://engineering.usu.edu/feedback">Website Feedback</a>
-                    <a id="de" href="http://a.cms.omniupdate.com/10?skin=usu&amp;account=usu&amp;site=UWRL&amp;action=de&amp;path=/lro/locations.pcf">Admin</a>
-                </div>
             </section>
         </div>
     </main>
+
+    <div class="mdl-layout__content">
+        <section class="section--footer mdl-mega-footer mdl-color--usu-blue mdl-grid">
+            <div class="section__text mdl-cell mdl-cell--12-col footer-links">
+                <a href="https://uwrl.usu.edu/lro/research">Research</a>
+                <a href="https://uwrl.usu.edu/lro/about/history">History</a>
+                <a href="https://uwrl.usu.edu/lro/partners">Partners</a>
+                <a href="https://uwrl.usu.edu/lro/contact">Contact</a>
+                <a href="https://uwrl.usu.edu/lro/resources">Resources</a>
+            </div>
+            <hr class="mdl-cell--12-col">
+            <div class="section__text mdl-cell mdl-cell--8-col global-footer">
+                <a href="https://www.usu.edu/copyright">© Utah State University</a>
+                <a href="https://www.usu.edu/privacy/">Privacy</a>
+                <a href="https://www.usu.edu/campus-life/safety">Safety</a>
+                <a href="https://accessibility.usu.edu/">Accessibility</a>
+                <a href="https://aaeo.usu.edu/non-discrimination">Non-discrimination</a>
+                <a href="https://engineering.usu.edu/feedback">Website Feedback</a>
+                <a id="de"
+                   href="http://a.cms.omniupdate.com/10?skin=usu&amp;account=usu&amp;site=UWRL&amp;action=de&amp;path=/lro/locations.pcf">Admin</a>
+            </div>
+        </section>
+    </div>
 
 </div>
 {% block scripts %}
