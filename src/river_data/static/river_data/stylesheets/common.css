@@ -255,11 +255,6 @@ table.shade-first-col tr td:first-child {
     margin: 8px 16px;
 }
 
-.mdl-demo section.section--footer {
-    padding: 15px 64px;
-    margin: 0 -8px -8px -8px;
-}
-
 .mdl-demo section.section--center .section__text:not(:last-child) {
     border-bottom: 1px solid rgba(0, 0, 0, .13);
 }
@@ -448,4 +443,42 @@ table.shade-first-col tr td:first-child {
 .footer-links a {
     color: #e6e6e6;
     margin: 0 15px;
+}
+
+@media (min-width: 768px) {
+    .section--footer {
+        width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    .section--footer {
+        width: 970px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .section--footer {
+        width: 1170px;
+    }
+}
+
+#footer {
+    color: #fff;
+}
+
+.section--footer {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+@media screen and (max-width: 1024px) {
+    .mdl-layout__container.has-scrolling-header .mdl-layout__content {
+        overflow-y: unset;
+        overflow-x: unset;
+    }
 }

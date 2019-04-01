@@ -4,6 +4,7 @@
 
 div.map-container {
     height: 456px !important;
+    margin-bottom: 15px;
 }
 
 .plot_box {
@@ -19,7 +20,6 @@ div.map-container {
 
 .plot_box .mdl-card__supporting-text {
     color: rgba(0, 0, 0, 0.8);
-    padding: 15px !important;
     margin: 0 !important;
     width: 100% !important;
 }
@@ -33,8 +33,25 @@ svg.not-stale {
 }
 
 .last-observation {
-    font-weight: bold;
     display: block;
+}
+
+.last-value {
+    color: steelblue;
+}
+
+.last-value, .unit {
+    display: inline-block;
+    margin: 0;
+}
+
+table tr td:first-child, table tr td:nth-child(2) {
+    background: #c2c2c21a;
+}
+
+table tr td:first-child {
+    width: 30px;
+    text-align:center;
 }
 
 .text-black {
