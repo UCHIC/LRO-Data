@@ -1,3 +1,4 @@
+from PIL import Image
 from django.conf import settings
 from django.db import models
 
@@ -41,8 +42,31 @@ class Series(models.Model):
     def __repr__(self) -> str:
         return f'({self.id}, {self.variable_code}, {self.unit_name}, {self.sampled_medium})'
 
-#
-# class SitePhoto(models.Model):
-#     site = models.ForeignKey('Site', related_name='photos', on_delete=models.CASCADE)
-#     photo = models.FileField(upload_to='')
-#
+
+def site_directory_path(instance, filename):
+    return f'{instance.site}/{instance.site}_{filename}'
+
+
+class SitePhoto(models.Model):
+    PHOTO_MAX_SIZE = 720
+    site = models.ForeignKey('Site', related_name='photos', on_delete=models.CASCADE)
+    photo = models.ImageField(upload_to=site_directory_path)
+
+    def save(self, *args, **kwargs):
+        super(SitePhoto, self).save(*args, **kwargs)
+        uploaded_image = Image.open(self.photo.path)
+        image_size = self.get_new_size(self.photo)
+        uploaded_image = uploaded_image.resize(image_size, Image.ANTIALIAS)
+        uploaded_image.save(self.photo.path, optimize=True, quality=70)
+
+    def get_new_size(self, image):
+        is_landscape = image.width > image.height
+        width = int(round(self.PHOTO_MAX_SIZE if is_landscape else (float(image.width) / image.height) * self.PHOTO_MAX_SIZE))
+        height = int(round(self.PHOTO_MAX_SIZE if not is_landscape else (float(image.height) / image.width) * self.PHOTO_MAX_SIZE))
+        return width, height
+
+    def __str__(self) -> str:
+        return f'{self.photo.name} - {self.site}'
+
+    def __repr__(self) -> str:
+        return f'({self.id}, {self.photo.name}, {self.site})'

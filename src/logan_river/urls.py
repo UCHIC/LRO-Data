@@ -16,10 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 from river_data.views import SitesView, SiteDetailView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', SitesView.as_view(), name='logan_river_sites'),
     path('site/<str:pk>', SiteDetailView.as_view(), name='site_details')
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
