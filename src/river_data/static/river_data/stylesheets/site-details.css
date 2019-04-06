@@ -5,6 +5,7 @@
 div.map-container {
     height: 456px !important;
     margin-bottom: 15px;
+    border: 1px solid #DDD;
 }
 
 .plot_box {
@@ -158,4 +159,29 @@ table.sensors td:not([data-behavior]), table.macroinvertebrate td:not([data-beha
 .line {
     fill: none;
     stroke-width: 2px;
+}
+
+#imgCarousel {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#siteDataTable {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.carousel-inner > .item > a > img, .carousel-inner > .item > img {
+    margin: auto;
+}
+
+.variable-title-wrapper {
+    overflow: hidden;
+}
+
+.variable-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
 }
