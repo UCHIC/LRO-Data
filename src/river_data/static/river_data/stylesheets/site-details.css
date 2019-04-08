@@ -173,6 +173,8 @@ table.sensors td:not([data-behavior]), table.macroinvertebrate td:not([data-beha
 
 .carousel-inner > .item > a > img, .carousel-inner > .item > img {
     margin: auto;
+    max-height: 433px;
+    width: auto;
 }
 
 .variable-title-wrapper {
