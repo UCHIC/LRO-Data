@@ -187,3 +187,8 @@ table.sensors td:not([data-behavior]), table.macroinvertebrate td:not([data-beha
     text-overflow: ellipsis;
     width: 100%;
 }
+
+div.warning-text {
+    text-align: center;
+    color: red;
+}
