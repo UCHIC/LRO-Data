@@ -17,3 +17,4 @@ class SiteDetailView(DetailView):
     model = Site
     context_object_name = 'site'
     template_name = 'river_data/site_details.html'
+    queryset = Site.objects.prefetch_related('series', 'photos').all()
