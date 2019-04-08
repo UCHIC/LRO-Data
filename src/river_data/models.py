@@ -16,6 +16,11 @@ class Site(models.Model):
     site_type = models.CharField(max_length=255)
     active = models.BooleanField()
 
+    @property
+    def safe_name(self):
+        name = "".join([c for c in self.site_name if c.isalpha() or c.isdigit() or c==' ']).rstrip()
+        return f'{name}'
+
     def __str__(self) -> str:
         return f'{self.site_name}'
 
@@ -44,7 +49,7 @@ class Series(models.Model):
 
 
 def site_directory_path(instance, filename):
-    return f'{instance.site}/{instance.site}_{filename}'
+    return f'{instance.site.safe_name}/{instance.site.safe_name}_{filename}'
 
 
 class SitePhoto(models.Model):
