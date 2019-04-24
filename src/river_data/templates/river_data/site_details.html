@@ -100,33 +100,49 @@
         </div>
     </div>
 
-    <h3 class="mdl-cell--12-col">Most Recent Instantaneous Measurements</h3>
+    <h3 class="most-recent-text mdl-cell--12-col">Most Recent Instantaneous Measurements</h3>
+{#    <span class="time-warning mdl-cell--12-col">Latest 24 hours shown.</span>#}
 
+    <div class="buttons-toolbar mdl-cell--12-col">
+        {% if site.raw_data_download_link %}
+        <a class="button-link mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+           href="{{ site.raw_data_download_link }}" target="_blank">
+            <i class="material-icons center-icon">cloud_download</i>
+            Download Raw Data
+        </a>
+        {% endif %}
+        {% if site.controlled_data_download_link %}
+        <a class="button-link mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+           href="{{ site.controlled_data_download_link }}" target="_blank">
+            <i class="material-icons center-icon">cloud_download</i>
+            Download Quality Controlled Data
+        </a>
+        {% endif %}
+        <a class="button-link mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+           href="/tsa/?sitecode={{ site.site_code }}&view=datasets&plot=false" target="_blank">
+            <i class="fas fa-external-link-alt"></i>
+            View on Time Series Analyst
+        </a>
+    </div>
     <div class="mdl-cell--12-col">
-        <div>Latest 24 hours shown.</div>
         <div class="mdl-grid">
-            {% for series in site.series.all %}
-            {% if series.variable_code == "WindSp_Avg" or series.variable_code == "WindSp_S_WVT" %}
-                <div class="data_box" id="windrose_box" style="height: 310px;"></div>
-            {% elif series.variable_code == "WindDir_Avg" or series.variable_code == "WindDir_D1_WVT" %}
-                <!-- no need to plot anything for wind direction -->
-            {% else %}
+            {% for series in site.active_series %}
                 <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--12-col-phone">
                     <div class="plot_box mdl-card mdl-shadow--2dp" data-id="{{ series.identifier }}"
                          data-influx-url="{{ series.influx_values_url }}">
                         <div class="mdl-card__actions mdl-card--border mdl-card__supporting-text">
                             <div class="mdl-grid">
-                                <div class="variable-title-wrapper">
+                                <div class="variable-title-wrapper mdl-cell--7-col">
                                     <h6 class="variable-title d-inline"
                                         title="{{ series.variable_name }}">{{ series.variable_name }}</h6>
                                 </div>
 
-                                <div>
+                                <div class="mdl-cell--6-col">
                                     {#  View on TSA button  #}
                                     <a target="_blank"
-                                       href="{{ tsa_url }}?sitecode={{ site.sampling_feature_code }}&variablecode={{ sensor.sensor_output.variable_code }}&view=visualization&plot=true">
+                                       href="/tsa/?sitecode={{ site.sampling_feature_code }}&variablecode={{ sensor.sensor_output.variable_code }}&view=visualization&plot=true">
                                         <span id="tsa-trigger-{{ forloop.counter0 }}"
-                                              class="fa fa-external-link tsa-trigger pull-right text-black"
+                                              class="fas fa-external-link-alt tsa-trigger pull-right text-black"
                                               aria-hidden="false"></span>
                                     </a>
                                     <div class="mdl-tooltip mdl-tooltip--left"
@@ -157,202 +173,11 @@
                         </div>
                     </div>
                 </div>
-            {% endif %}
-        {% empty %}
-            <div class="no_data_msg"><p>Sorry. No data found for this site</p></div>
-        {% endfor %}
+            {% empty %}
+                <div class="no_data_msg"><p>Sorry. No data found for this site</p></div>
+            {% endfor %}
         </div>
 
-        <!-- This table is used with the windrose plot, don't ever modify it!!-->
-
-        <div style="display:none">
-            <!-- Source: http://or.water.usgs.gov/cgi-bin/grapher/graph_windrose.pl -->
-            <table id="freq" border="0" cellspacing="0" cellpadding="0">
-                <tr nowrap bgcolor="#CCCCFF">
-                    <th colspan="9" class="hdr">Table of Frequencies (percent)</th>
-                </tr>
-                <tr nowrap bgcolor="#CCCCFF" id="ranges">
-                    <th class="freq">Direction</th>
-                    <th class="freq"> m/s</th>
-                    <th class="freq"> m/s</th>
-                    <th class="freq"> m/s</th>
-                    <th class="freq"> m/s</th>
-                    <th class="freq"> m/s</th>
-                    <th class="freq"> m/s</th>
-                    <th class="freq">Total</th>
-                </tr>
-                <tr nowrap id="n">
-                    <td class="dir">N</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                </tr>
-                <tr nowrap bgcolor="#DDDDDD" id="nne">
-                    <td class="dir">NNE</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                </tr>
-                <tr nowrap id="ne">
-                    <td class="dir">NE</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                </tr>
-                <tr nowrap bgcolor="#DDDDDD" id="ene">
-                    <td class="dir">ENE</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                </tr>
-                <tr nowrap id="e">
-                    <td class="dir">E</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                </tr>
-                <tr nowrap bgcolor="#DDDDDD" id="ese">
-                    <td class="dir">ESE</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                </tr>
-                <tr nowrap id="se">
-                    <td class="dir">SE</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                </tr>
-                <tr nowrap bgcolor="#DDDDDD" id="sse">
-                    <td class="dir">SSE</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                </tr>
-                <tr nowrap id="s">
-                    <td class="dir">S</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                </tr>
-                <tr nowrap bgcolor="#DDDDDD" id="ssw">
-                    <td class="dir">SSW</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                </tr>
-                <tr nowrap id="sw">
-                    <td class="dir">SW</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                </tr>
-                <tr nowrap bgcolor="#DDDDDD" id="wsw">
-                    <td class="dir">WSW</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                </tr>
-                <tr nowrap id="w">
-                    <td class="dir">W</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                </tr>
-                <tr nowrap bgcolor="#DDDDDD" id="wnw">
-                    <td class="dir">WNW</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                </tr>
-                <tr nowrap id="nw">
-                    <td class="dir">NW</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                </tr>
-                <tr nowrap bgcolor="#DDDDDD" id="nnw">
-                    <td class="dir">NNW</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                    <td class="data">0.00</td>
-                </tr>
-                <tr nowrap id="total">
-                    <td class="totals">Total</td>
-                    <td class="totals">0.00</td>
-                    <td class="totals">0.00</td>
-                    <td class="totals">0.00</td>
-                    <td class="totals">0.00</td>
-                    <td class="totals">0.00</td>
-                    <td class="totals">0.00</td>
-                    <td class="totals">&nbsp;</td>
-                </tr>
-            </table>
-        </div>
     <div class="warning-text">
         <span>WARNING: These data may be provisional and subject to revision. The data are released on the condition that neither iUTAH, Utah State University, Brigham Young University, nor the University of Utah may be held liable for any damages resulting from their use.</span>
     </div>

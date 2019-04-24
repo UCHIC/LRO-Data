@@ -1,10 +1,11 @@
 from django.conf import settings
+from django.db.models import Prefetch
 from django.shortcuts import render
 
 # Create your views here.
 from django.views.generic import ListView, DetailView
 
-from river_data.models import Site
+from river_data.models import Site, Series
 
 
 class SitesView(ListView):
@@ -17,4 +18,7 @@ class SiteDetailView(DetailView):
     model = Site
     context_object_name = 'site'
     template_name = 'river_data/site_details.html'
-    queryset = Site.objects.prefetch_related('series', 'photos').all()
+    queryset = Site.objects\
+        .prefetch_related('photos')\
+        .prefetch_related(Prefetch('series', queryset=Series.objects.filter(active=True), to_attr='active_series'))\
+        .all()

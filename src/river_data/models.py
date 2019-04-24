@@ -14,7 +14,9 @@ class Site(models.Model):
     county = models.CharField(max_length=255)
     watershed = models.CharField(max_length=255)
     site_type = models.CharField(max_length=255)
-    active = models.BooleanField()
+    active = models.BooleanField(default=True)
+    raw_data_download_link = models.CharField(max_length=512, blank=True, null=True)
+    controlled_data_download_link = models.CharField(max_length=512, blank=True, null=True)
 
     @property
     def safe_name(self):
@@ -36,6 +38,7 @@ class Series(models.Model):
     unit_abbreviation = models.CharField(max_length=255)
     sampled_medium = models.CharField(max_length=255)
     identifier = models.CharField(max_length=50, default='')
+    active = models.BooleanField(default=True)
 
     @property
     def influx_values_url(self) -> str:

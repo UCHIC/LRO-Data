@@ -70,12 +70,21 @@ table tr td:first-child {
     text-decoration: none;
 }
 
-.buttons-toolbar .button-link, .buttons-toolbar button {
-    margin-bottom: 15px;
+/*.buttons-toolbar .button-link, .buttons-toolbar button {*/
+    /*margin-bottom: 15px;*/
+/*}*/
+
+a.button-link {
+    margin-left: 15px;
 }
 
-.buttons-toolbar {
-    margin-top: -30px;
+.most-recent-text {
+    margin-left: 15px;
+}
+
+span.time-warning {
+    margin-top: -20px;
+    margin-left: 2px;
 }
 
 .table-trigger {
@@ -191,4 +200,10 @@ table.sensors td:not([data-behavior]), table.macroinvertebrate td:not([data-beha
 div.warning-text {
     text-align: center;
     color: red;
+}
+
+span.tsa-trigger {
+    margin-left: 20px !important;
+    margin-top: 6px;
+    font-size: 18px;
 }
