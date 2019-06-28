@@ -14,6 +14,7 @@ class SitePhotoInline(admin.StackedInline):
 class SeriesInline(admin.TabularInline):
     model = Series
     can_delete = False
+    exclude = ('odm_series_id', 'identifier')
     readonly_fields = ('variable_code', 'variable_name', 'unit_name',
                        'unit_abbreviation', 'sampled_medium', 'identifier')
 
@@ -26,6 +27,7 @@ class SeriesInline(admin.TabularInline):
 
 @admin.register(Site)
 class SiteAdmin(admin.ModelAdmin):
+    exclude = ('odm_site_id', )
     actions = ['update_site_metadata']
     inlines = [SeriesInline, SitePhotoInline, ]
     change_list_template = 'admin/site_changelist.html'
