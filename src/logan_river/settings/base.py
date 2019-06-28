@@ -51,7 +51,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'river_data.apps.RiverDataConfig'
+    'river_data.apps.RiverDataConfig',
+    'odm.apps.OdmConfig'
 ]
 
 MIDDLEWARE = [
@@ -101,7 +102,7 @@ for database in config['databases']:
         'TEST': database['test'] if 'test' in database else {},
     }
 
-# DATABASE_ROUTERS = ['metadata.db_routers.MetadataRouter']
+DATABASE_ROUTERS = ['logan_river.db_routers.LRORouter']
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -152,6 +153,7 @@ SITE_ID = 1
 
 # Logan River Specific Configuration
 
+WATERSHED = config['watershed']
 GET_SITES_SERVICE = config['waterml_service_urls']['get_sites']
 GET_SITE_INFO_SERVICE = config['waterml_service_urls']['get_site_info']
 GET_VALUES_SERVICE = config['influxdb_values_url']

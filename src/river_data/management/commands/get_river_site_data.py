@@ -84,5 +84,4 @@ class Command(BaseCommand):
         print('- done!')
 
 
-def is_raw_quality(quality_code: str) -> bool:
-    return quality_code == '0'
+

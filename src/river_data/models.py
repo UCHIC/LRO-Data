@@ -4,6 +4,7 @@ from django.db import models
 
 
 class Site(models.Model):
+    odm_site_id = models.IntegerField()
     site_code = models.CharField(max_length=50, primary_key=True)
     site_name = models.CharField(max_length=255)
     elevation_m = models.FloatField(blank=True, null=True)
@@ -20,7 +21,7 @@ class Site(models.Model):
 
     @property
     def safe_name(self):
-        name = "".join([c for c in self.site_name if c.isalpha() or c.isdigit() or c==' ']).rstrip()
+        name = "".join([c for c in self.site_name if c.isalpha() or c.isdigit() or c == ' ']).rstrip()
         return f'{name}'
 
     def __str__(self) -> str:
@@ -31,6 +32,7 @@ class Site(models.Model):
 
 
 class Series(models.Model):
+    odm_series_id = models.IntegerField()
     site = models.ForeignKey('Site', related_name='series', on_delete=models.CASCADE)
     variable_code = models.CharField(max_length=50)
     variable_name = models.CharField(max_length=255)
