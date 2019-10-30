@@ -20,5 +20,5 @@ class SiteDetailView(DetailView):
     template_name = 'river_data/site_details.html'
     queryset = Site.objects\
         .prefetch_related('photos')\
-        .prefetch_related(Prefetch('series', queryset=Series.objects.filter(active=True), to_attr='active_series'))\
+        .prefetch_related(Prefetch('series', queryset=Series.objects.all(), to_attr='active_series'))\
         .all()
