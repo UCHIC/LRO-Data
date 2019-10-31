@@ -30,7 +30,8 @@ class SiteDataHelper(object):
     def copy_series_data(self, site: Site, odm_series: ODMSeries, series: Series = None):
         if series is None:
             series: Series = Series()
-            series.odm_series_id = odm_series.pk
+            series.odm_series_key = f'{odm_series.site_id}_{odm_series.variable_id}_{odm_series.method_id}_' \
+                                    f'{odm_series.source_id}_{odm_series.quality_control_level_id}'
         series.site_id = site.pk
         series.variable_code = odm_series.variable_code
         series.variable_name = odm_series.variable_name
@@ -54,7 +55,9 @@ class SiteDataHelper(object):
             for odm_series in odm_site.odm_series.all():
                 if not is_raw_quality(odm_series.quality_control_level_code):
                     continue
-                existing_series = site.series.filter(odm_series_id=odm_series.series_id).first()
+                odm_series_key = f'{odm_series.site_id.site_id}_{odm_series.variable_id}_{odm_series.method_id}_' \
+                                 f'{odm_series.source_id}_{odm_series.quality_control_level_id}'
+                existing_series = site.series.filter(odm_series_key=odm_series_key).first()
                 self.copy_series_data(site, odm_series, existing_series).save()
 
     def sync_individual_site(self, site: Site) -> None:

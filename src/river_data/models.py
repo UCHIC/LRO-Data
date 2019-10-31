@@ -32,7 +32,8 @@ class Site(models.Model):
 
 
 class Series(models.Model):
-    odm_series_id = models.IntegerField()
+    odm_series_id = models.IntegerField()  # DEPRECATED in favor of `odm_series_key`
+    odm_series_key = models.CharField(max_length=50, default='')
     site = models.ForeignKey('Site', related_name='series', on_delete=models.CASCADE)
     variable_code = models.CharField(max_length=50)
     variable_name = models.CharField(max_length=255)
