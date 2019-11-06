@@ -148,6 +148,8 @@ STATIC_ROOT = config["static_root"]
 
 MEDIA_ROOT = config["media_root"]
 
+FILE_UPLOAD_PERMISSIONS = 744
+
 SITE_ID = 1
 
 
