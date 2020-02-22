@@ -14,7 +14,7 @@ class SitePhotoInline(admin.StackedInline):
 class SeriesInline(admin.TabularInline):
     model = Series
     can_delete = False
-    exclude = ('odm_series_id', 'identifier')
+    exclude = ('odm_series_id', 'odm_series_key', 'identifier')
     readonly_fields = ('variable_code', 'variable_name', 'unit_name',
                        'unit_abbreviation', 'sampled_medium', 'identifier')
 
