@@ -30,7 +30,7 @@ class SiteDataHelper(object):
     def copy_series_data(self, site: Site, odm_series: ODMSeries, series: Series = None):
         if series is None:
             series: Series = Series()
-            series.odm_series_key = f'{odm_series.site_id}_{odm_series.variable_id}_{odm_series.method_id}_' \
+            series.odm_series_key = f'{odm_series.site_id_id}_{odm_series.variable_id}_{odm_series.method_id}_' \
                                     f'{odm_series.source_id}_{odm_series.quality_control_level_id}'
         series.site_id = site.pk
         series.variable_code = odm_series.variable_code
