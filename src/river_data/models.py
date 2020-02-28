@@ -18,6 +18,7 @@ class Site(models.Model):
     active = models.BooleanField(default=True)
     raw_data_download_link = models.CharField(max_length=512, blank=True, null=True)
     controlled_data_download_link = models.CharField(max_length=512, blank=True, null=True)
+    rating_curve_link = models.CharField(max_length=512, blank=True, null=True)
 
     @property
     def safe_name(self):
