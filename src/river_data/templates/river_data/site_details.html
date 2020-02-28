@@ -118,6 +118,13 @@
             Download Quality Controlled Data
         </a>
         {% endif %}
+        {% if site.rating_curve_link %}
+            <a class="button-link mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+               href="{{ site.rating_curve_link }}" target="_blank">
+                <i class="material-icons center-icon">bar_chart</i>
+                Explore Rating Curve
+            </a>
+        {% endif %}
         <a class="button-link mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
            href="/tsa/?sitecode={{ site.site_code }}&view=datasets&plot=false" target="_blank">
             <i class="fas fa-external-link-alt"></i>
