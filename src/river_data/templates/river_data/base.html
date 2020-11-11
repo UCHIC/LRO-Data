@@ -73,21 +73,42 @@
             <div class="main-header">
                 <a href="https://uwrl.usu.edu/lro/index.php">
                     <img class="img-responsive logo-left" src="https://uwrl.usu.edu/lro/images/lro-header.png"
-                         alt="Logan River Observatory" width="290">
+                         alt="Logan River Observatory" width="300">
                 </a>
             </div>
         </div>
 
         <div class="mdl-layout__tab-bar external-navigation">
-            <a href="https://uwrl.usu.edu/lro/about/history" class="mdl-layout__tab">About</a>
-            <a href="https://uwrl.usu.edu/lro/updatedpeople/faculty" class="mdl-layout__tab">People</a>
+            <a id="about-menu" href="#" class="mdl-layout__tab">About</a>
+            <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu" for="about-menu">
+                <li><a href="https://uwrl.usu.edu/lro/about/history.php">LRO History</a></li>
+                <li><a href="https://uwrl.usu.edu/lro/about/logan-river-information.php">Logan River</a></li>
+                <li><a href="https://uwrl.usu.edu/lro/about/pictures.php">Pictures</a></li>
+            </ul>
+            <a id="people-menu" href="#" class="mdl-layout__tab">People</a>
+            <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu" for="people-menu">
+                <li><a href="https://uwrl.usu.edu/lro/lropeople/faculty.php">Faculty</a></li>
+                <li><a href="https://uwrl.usu.edu/lro/lropeople/research-staff.php">Research Staff</a></li>
+                <li><a href="https://uwrl.usu.edu/lro/lropeople/students.php">Students</a></li>
+            </ul>
             <a href="https://uwrl.usu.edu/lro/partners" class="mdl-layout__tab">Partners</a>
             <a href="https://uwrl.usu.edu/lro/locations" class="mdl-layout__tab">Sites & Infrastructure</a>
             <a href="{% url 'logan_river_sites' %}" class="mdl-layout__tab active">Data</a>
-            <a href="https://uwrl.usu.edu/lro/research" class="mdl-layout__tab">Research</a>
-            <a href="https://uwrl.usu.edu/lro/resources" class="mdl-layout__tab">Educational Resources</a>
+            <a id="research-menu" href="#" class="mdl-layout__tab">Research</a>
+            <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu" for="research-menu">
+              <li><a href="https://uwrl.usu.edu/lro/research/projects.php">Projects</a></li>
+              <li><a href="https://uwrl.usu.edu/lro/research/publications.php">Publications</a></li>
+            </ul>
+            <a id="outreach-menu" href="#" class="mdl-layout__tab">Outreach</a>
+            <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu" for="outreach-menu">
+              <li><a href="https://uwrl.usu.edu/lro/resources.php">Educational Resources</a></li>
+              <li><a href="https://uwrl.usu.edu/lro/outreach.php">Community Outreach</a></li>
+            </ul>
+            <a href="https://uwrl.usu.edu/lro/logan-river-task-force.php" class="mdl-layout__tab">Logan River Task Force</a>
+            <a href="https://uwrl.usu.edu/lro/news/index.php" class="mdl-layout__tab">News</a>
             <a href="https://uwrl.usu.edu/lro/contact" class="mdl-layout__tab">Contact</a>
         </div>
+
     </header>
     <main class="mdl-layout__content main-container">
         <div class="mdl-layout__tab-panel is-active">

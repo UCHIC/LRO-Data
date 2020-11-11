@@ -429,6 +429,40 @@ table.shade-first-col tr td:first-child {
     color: black;
 }
 
+.mdl-menu {
+    background-color: #eff2f7;
+    color: #00263A;
+    border: 1px solid #eff2f7;
+    background-clip: border-box;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    list-style: none;
+    font-size: 14px;
+    text-align: left;
+    border-radius: 3px;
+}
+
+.mdl-menu li a {
+    color: #333;
+    padding: 7px 15px 5px;
+    display: block;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.428571429;
+    white-space: nowrap;
+}
+
+.mdl-menu li a:hover, .mdl-menu li a:focus {
+    background-color: #384660;
+    color: #fff;
+    text-decoration: none;
+}
+
+.mdl-menu__outline {
+    background: #eff2f7;
+}
+
 .global-footer, .footer-links {
     text-align: center;
 }
