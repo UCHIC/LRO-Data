@@ -1,22 +1,23 @@
 {% extends 'river_data/base.html' %}
 
 {% block content %}
-    <h3>Monitoring Sites</h3>
-    <div class="mdl-card mdl-cell mdl-cell--12-col">
-        <table class="mdl-data-table mdl-js-data-table full-width shade-first-col">
+    <h2 class="font-weight-bold">Monitoring Sites</h2>
+
+    <div>
+        <table id="sites-table" class="table table-bordered shade-first-col">
             <thead>
             <tr>
-                <th class="mdl-data-table__cell--non-numeric ">Site Code</th>
-                <th class="mdl-data-table__cell--non-numeric">Site Name</th>
-                <th class="mdl-data-table__cell--non-numeric">Status</th>
+                <th scope="col">Site Code</th>
+                <th scope="col">Site Name</th>
+                <th scope="col">Status</th>
             </tr>
             </thead>
             <tbody>
             {% for site in sites %}
                 <tr>
-                    <td class="mdl-data-table__cell--non-numeric"><a href="{% url 'site_details' site.site_code %}">{{ site.site_code }}</a></td>
-                    <td class="mdl-data-table__cell--non-numeric">{{ site.site_name }}</td>
-                    <td class="mdl-data-table__cell--non-numeric">{% if site.active %}Operational{% else %}Decommissioned{% endif %}</td>
+                    <td><a href="{% url 'site_details' site.site_code %}">{{ site.site_code }}</a></td>
+                    <td>{{ site.site_name }}</td>
+                    <td>{% if site.active %}Operational{% else %}Decommissioned{% endif %}</td>
                 </tr>
             {% endfor %}
             </tbody>

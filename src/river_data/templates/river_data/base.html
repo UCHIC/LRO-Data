@@ -1,158 +1,645 @@
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="fontawesome-i2svg-active fontawesome-i2svg-complete">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <meta name="author" content="Utah Water Research Laboratory">
-    <meta name="description" content="Logan River Observatory Data">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     {% block page_title %}
-        <title>Logan River Observatory Data</title>
+        <title>Data | Logan River Observatory | USU</title>
     {% endblock %}
 
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <link rel="icon" sizes="192x192" href="">
-
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
-    <link rel="apple-touch-icon-precomposed" href="">
-
-    <!-- Tile icon for Win8 (144x144 + tile color) -->
-    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
-    <meta name="msapplication-TileColor" content="#3372DF">
-
-    <link rel="shortcut icon" href="">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Utah State University">
+    <meta name="language" content="en">
+    <meta name="robots" content="follow, all">
+    <meta name="revisit-after" content="5 days">
+    <link rel="icon" href="https://www.usu.edu/favicon.ico" type="image/x-icon">
+    <meta name="Description"
+          content="Current and recent projects of the Logan River Observatory in Logan, Utah at Utah State University">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://uwrl.usu.edu/lro/research/projects">
+    <meta property="og:title" content="Projects | Logan River Observatory">
+    <meta property="og:description"
+          content="Current and recent projects of the Logan River Observatory in Logan, Utah at Utah State University">
+    <link rel="dns-prefetch" href="https://prod.ally.ac">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://ajax.googleapis.com">
+    <link rel="dns-prefetch" href="https://stackpath.bootstrapcdn.com">
+    <link rel="dns-prefetch" href="https://kit.fontawesome.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com.com">
+    <link rel="dns-prefetch" href="https://kit-free.fontawesome.com">
+    <link rel="dns-prefetch" href="https://cse.google.com">
+    <link rel="stylesheet" type="text/css" href="https://www.usu.edu/assets/bs4/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://www.usu.edu/assets/bs4/css/main.css">
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+    <script type="text/javascript" async=""
+            src="https://www.googletagmanager.com/gtag/js?id=G-WDMMQHWH81&amp;l=dataLayer&amp;cx=c"></script>
+    <script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-WPLCQ7L"></script>
+    <script data-ally-loader="" data-ally-platform-name="web" data-ally-client-id="4306" data-ally-af-style="flag_large"
+            defer="" src="https://prod.ally.ac/integration/api/ally.ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://templateresources.usu.edu/_resources/css/global-custom.css">
 
     {% block styles %}
-        <link rel="stylesheet"
-              href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-              integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-              crossorigin="anonymous">
-        <link rel="stylesheet"
-              href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
-        <link href="https://fonts.googleapis.com/css?family=Lato|Roboto|Roboto+Condensed" rel="stylesheet">
-        <link rel="stylesheet"
-              href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
-        <link rel="stylesheet"
-              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-blue.min.css">
         <link rel="stylesheet" href="{% static 'river_data/stylesheets/common.css' %}">
     {% endblock %}
 
-    {% block forced_scripts %}
-
-    {% endblock %}
+    <script>(function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-WPLCQ7L');</script>
+    <script type="text/javascript"
+            src="https://prod.ally.ac/static/integration/api/ally.ui.b9d1cc8093059f04bcf2.js"></script>
+    <link class="ally-styles"
+          href="https://prod.ally.ac//static/integration/css/ally.b0865be865cd64e793f7cc569b416eaf.css" id="ally-styles"
+          rel="stylesheet">
 </head>
 
-<body class="mdl-demo mdl-color-text--grey-700 mdl-base">
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-    <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--usu-blue">
-        <div class="mdl-layout__header-row top-menu mdl-grid">
-            <div class="mdl-cell brand">
-                <a href="https://www.usu.edu/">
-                    <img class="usuLogo" src="https://ouresources.usu.edu/_resources/assets/images/horizontal_logo_small.png" alt="Utah State University Logo">
-                </a>
-            </div>
-            <div class="column-expander"></div>
-            <div class="mdl-cell top-menu--right mdl-cell">
-                <a href="http://www.usu.edu/" class="mdl-layout__tab"><i class="fas fa-home"></i></a>
-                <a href="http://www.usu.edu/azindex/" class="mdl-layout__tab">A-Z Index</a>
-                <a href="http://www.usu.edu/myusu/" class="mdl-layout__tab">MyUSU</a>
-                <a href="http://directory.usu.edu/" class="mdl-layout__tab">Directory</a>
+
+<body class="ou ">
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WPLCQ7L" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe>
+</noscript>
+<header><a href="#content" class="sr-only sr-only-focusable">Skip Navigation</a>
+    <div id="site-header" class="d-none d-lg-block">
+        <div class="accordion" id="site-header-nav">
+            <div id="headerCollapseOne" class="collapse" aria-labelledby="quick-links" data-parent="#site-header-nav">
+                <div class="container">
+                    <div class="row">
+                        <div class="col d-flex justify-content-end py-3">
+                            <ul class="list-inline small m-0 mr-3" role="navigation">
+                                <li class="list-inline-item"><a href="https://www.usu.edu/apply/">Apply</a></li>
+                                <li class="list-inline-item"><a href="https://www.usu.edu/visit/">Visit</a></li>
+                                <li class="list-inline-item"><a href="https://www.usu.edu/giving/">Give</a></li>
+                                <li class="list-inline-item"><a href="https://www.usu.edu/calendar/">Calendar</a></li>
+                                <li class="list-inline-item"><a href="https://www.usu.edu/azindex/">A-Z</a></li>
+                                <li class="list-inline-item"><a href="http://directory.usu.edu/">Directory</a></li>
+                                <li class="list-inline-item"><a href="http://library.usu.edu/">Libraries</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="mdl-layout__header-row mdl-color--white mdl-color-text--blue-grey-900 mdl-grid main-header-wrapper">
-            <div class="main-header">
-                <a href="https://uwrl.usu.edu/lro/index.php">
-                    <img class="img-responsive logo-left" src="https://uwrl.usu.edu/lro/images/lro-header.png"
-                         alt="Logan River Observatory" width="300">
-                </a>
+        <nav class="navbar navbar-expand py-0 my-0 pl-lg-3">
+            <div class="container">
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a id="quick-links" class="nav-link small px-1 searpx-lg-2" role="button"
+                                                href="#" data-toggle="collapse" data-target="#headerCollapseOne"
+                                                aria-controls="headerCollapseOne" aria-expanded="false"
+                                                aria-label="Toggle navigation">
+                            <svg class="svg-inline--fa fa-list fa-w-16 mr-2" aria-hidden="true" focusable="false"
+                                 data-prefix="fas" data-icon="list" role="img" xmlns="http://www.w3.org/2000/svg"
+                                 viewBox="0 0 512 512" data-fa-i2svg="">
+                                <path fill="currentColor"
+                                      d="M80 368H16a16 16 0 0 0-16 16v64a16 16 0 0 0 16 16h64a16 16 0 0 0 16-16v-64a16 16 0 0 0-16-16zm0-320H16A16 16 0 0 0 0 64v64a16 16 0 0 0 16 16h64a16 16 0 0 0 16-16V64a16 16 0 0 0-16-16zm0 160H16a16 16 0 0 0-16 16v64a16 16 0 0 0 16 16h64a16 16 0 0 0 16-16v-64a16 16 0 0 0-16-16zm416 176H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0-320H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16zm0 160H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"></path>
+                            </svg><!-- <i class="fas fa-list mr-2"></i> Font Awesome fontawesome.com -->QUICK LINKS</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link small px-1 px-lg-2" href="https://my.usu.edu/"
+                                                role="link">
+                            <svg class="svg-inline--fa fa-user fa-w-14 mr-2" aria-hidden="true" focusable="false"
+                                 data-prefix="fas" data-icon="user" role="img" xmlns="http://www.w3.org/2000/svg"
+                                 viewBox="0 0 448 512" data-fa-i2svg="">
+                                <path fill="currentColor"
+                                      d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"></path>
+                            </svg><!-- <i class="fas fa-user mr-2"></i> Font Awesome fontawesome.com -->MyUSU</a></li>
+                        <li class="nav-item"><a class="nav-link small px-1 px-lg-2 search-btn" href="#" role="button"
+                                                aria-label="Open website search">
+                            <svg class="svg-inline--fa fa-search fa-w-16 mr-2" aria-hidden="true" focusable="false"
+                                 data-prefix="fas" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg"
+                                 viewBox="0 0 512 512" data-fa-i2svg="">
+                                <path fill="currentColor"
+                                      d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path>
+                            </svg><!-- <i class="fas fa-search mr-2"></i> Font Awesome fontawesome.com -->SEARCH</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container d-none d-lg-block">
+            <div class="row">
+                <div class="header-brand-wrapper-inline pt-2 ml-lg-3 has-unit"><a class="align-self-center"
+                                                                                  href="http://www.usu.edu/"><img
+                        class="img-fluid"
+                        srcset="https://www.usu.edu/assets/bs4/images/logos/utah-state-logo-220.png 220w, https://www.usu.edu/assets/bs4/images/logos/utah-state-logo-350.png 350w"
+                        sizes="(max-width: 1199.98px) 220px, 350px"
+                        src="https://www.usu.edu/assets/bs4/images/logos/utah-state-logo-350.png"
+                        alt="Utah State University" title="" style=""></a>
+                    <div class="brand-inline ml-3 pl-3"><a class="header-brand" href="/lro/index.php">
+                        Logan River Observatory
+                    </a>
+                        <!-- <a class="header-sub-brand" href="/index.php">
+                                Utah Water Research Laboratory
+                        </a> --></div>
+                </div>
+                <div class="d-flex align-self-end ml-auto p-3 tagline text-white"></div>
             </div>
         </div>
-
-        <div class="mdl-layout__tab-bar external-navigation">
-            <a id="about-menu" href="#" class="mdl-layout__tab">About</a>
-            <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu" for="about-menu">
-                <li><a href="https://uwrl.usu.edu/lro/about/history.php">LRO History</a></li>
-                <li><a href="https://uwrl.usu.edu/lro/about/logan-river-information.php">Logan River</a></li>
-                <li><a href="https://uwrl.usu.edu/lro/about/pictures.php">Pictures</a></li>
-            </ul>
-            <a id="people-menu" href="#" class="mdl-layout__tab">People</a>
-            <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu" for="people-menu">
-                <li><a href="https://uwrl.usu.edu/lro/lropeople/faculty.php">Faculty</a></li>
-                <li><a href="https://uwrl.usu.edu/lro/lropeople/research-staff.php">Research Staff</a></li>
-                <li><a href="https://uwrl.usu.edu/lro/lropeople/students.php">Students</a></li>
-            </ul>
-            <a href="https://uwrl.usu.edu/lro/partners" class="mdl-layout__tab">Partners</a>
-            <a href="https://uwrl.usu.edu/lro/locations" class="mdl-layout__tab">Sites & Infrastructure</a>
-            <a href="{% url 'logan_river_sites' %}" class="mdl-layout__tab active">Data</a>
-            <a id="research-menu" href="#" class="mdl-layout__tab">Research</a>
-            <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu" for="research-menu">
-              <li><a href="https://uwrl.usu.edu/lro/research/projects.php">Projects</a></li>
-              <li><a href="https://uwrl.usu.edu/lro/research/publications.php">Publications</a></li>
-            </ul>
-            <a id="outreach-menu" href="#" class="mdl-layout__tab">Outreach</a>
-            <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu" for="outreach-menu">
-              <li><a href="https://uwrl.usu.edu/lro/resources.php">Educational Resources</a></li>
-              <li><a href="https://uwrl.usu.edu/lro/outreach.php">Community Outreach</a></li>
-            </ul>
-            <a href="https://uwrl.usu.edu/lro/logan-river-task-force.php" class="mdl-layout__tab">Logan River Task Force</a>
-            <a href="https://uwrl.usu.edu/lro/news/index.php" class="mdl-layout__tab">News</a>
-            <a href="https://uwrl.usu.edu/lro/contact" class="mdl-layout__tab">Contact</a>
-        </div>
-
-    </header>
-    <main class="mdl-layout__content main-container">
-        <div class="mdl-layout__tab-panel is-active">
-            <section class="section--center mdl-grid">
-                {% block content %} {% endblock %}
-            </section>
-        </div>
-    </main>
-
-    <div class="mdl-layout__content mdl-color--usu-blue" id="footer">
-        <section class="section--footer  mdl-grid">
-            <div class="section__text mdl-cell--3-col mdl-cell--12-col-phone mdl-cell-3-tablet footer-links">
-                <p><a href="https://uwrl.usu.edu/lro/research">Research</a></p>
-                <p><a href="https://uwrl.usu.edu/lro/about/history">History</a></p>
-                <hr class="hidden-md hidden-lg">
-            </div>
-            <div class="section__text mdl-cell--6-col mdl-cell--12-col-phone footer-links">
-                <p><a href="https://uwrl.usu.edu/lro/partners">Partners</a></p>
-                <hr class="hidden-md hidden-lg">
-            </div>
-            <div class="section__text mdl-cell--3-col mdl-cell--12-col-phone footer-links">
-                <p><a href="https://uwrl.usu.edu/lro/contact">Contact</a></p>
-                <p><a href="https://uwrl.usu.edu/lro/resources">Resources</a></p>
-            </div>
-            <hr class="mdl-cell--12-col">
-            <div class="section__text mdl-cell mdl-cell--8-col global-footer">
-                <a href="https://www.usu.edu/copyright">© Utah State University</a>
-                <a href="https://www.usu.edu/privacy/">Privacy</a>
-                <a href="https://www.usu.edu/campus-life/safety">Safety</a>
-                <a href="https://accessibility.usu.edu/">Accessibility</a>
-                <a href="https://aaeo.usu.edu/non-discrimination">Non-discrimination</a>
-                <a href="https://engineering.usu.edu/feedback">Website Feedback</a>
-                <a id="de"
-                   href="http://a.cms.omniupdate.com/10?skin=usu&amp;account=usu&amp;site=UWRL&amp;action=de&amp;path=/lro/locations.pcf">Admin</a>
-            </div>
-        </section>
     </div>
+    <div class="header-brand-collapsed d-lg-none"><a class="pt-2 px-3" href="https://www.usu.edu/"><img
+            class="img-fluid"
+            srcset="https://www.usu.edu/assets/bs4/images/logos/utah-state-logo-200.png 200w, https://www.usu.edu/assets/bs4/images/logos/utah-state-logo-220.png 220w"
+            sizes="(max-width: 767.98px) 200px, 220px"
+            src="https://www.usu.edu/assets/bs4/images/logos/utah-state-logo-220.png" alt="Utah State University"></a>
+    </div>
+    <section id="search-overlay">
+        <div class="close-btn"><a href="#" role="button" class="btn btn-lg ml-auto m-3 p-2" aria-label="Close"><span
+                class="sr-only">Close search</span>
+            <svg class="svg-inline--fa fa-times fa-w-11" aria-hidden="true" focusable="false" data-prefix="fas"
+                 data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg="">
+                <path fill="currentColor"
+                      d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path>
+            </svg><!-- <i class="fas fa-times"></i> Font Awesome fontawesome.com --></a></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <form class="col-12 col-sm-10 col-lg-8" name="search_form" id="search_form" method="get"
+                      action="https://www.usu.edu/search/">
+                    <h2 class="my-5">Search Utah State University:</h2>
+                    <fieldset>
+                        <legend class="sr-only">I want to search</legend>
+                        <div class="custom-control custom-radio custom-control-inline"><input type="radio"
+                                                                                              id="all_sites"
+                                                                                              name="search_type"
+                                                                                              class="custom-control-input"
+                                                                                              page="https://www.usu.edu/search/"
+                                                                                              checked=""
+                                                                                              value="Search USU sites"><label
+                                class="custom-control-label text-white" for="all_sites">All USU sites</label></div>
+                        <div class="custom-control custom-radio custom-control-inline"><input type="radio" id="people"
+                                                                                              name="search_type"
+                                                                                              class="custom-control-input"
+                                                                                              page="https://www.usu.edu/directory/"
+                                                                                              value="Search people"><label
+                                class="custom-control-label text-white" for="people">People</label></div>
+                    </fieldset>
+                    <div class="input-group my-3"><label for="search_terms" class="sr-only">Search terms</label><input
+                            type="text" name="q" id="search_terms" class="form-control" placeholder="Search USU sites"
+                            aria-label="Search">
+                        <div class="input-group-append">
+                            <button class="btn" type="submit" id="submit-search" aria-label="Submit search"><span
+                                    class="sr-only">Submit search</span>
+                                <svg class="svg-inline--fa fa-search fa-w-16" aria-hidden="true" focusable="false"
+                                     data-prefix="fas" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg"
+                                     viewBox="0 0 512 512" data-fa-i2svg="">
+                                    <path fill="currentColor"
+                                          d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path>
+                                </svg><!-- <i class="fas fa-search"></i> Font Awesome fontawesome.com --></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</header>
+<nav id="master-nav" class="navbar nav-white navbar-expand-lg sticky-top px-0" aria-label="Main menu">
+    <div class="container pt-0 px-0">
+        <div id="offcanvas-backdrop" tabindex="-1" aria-hidden="true"></div>
+        <div class="nav-brand-wrapper"><a class="nav-brand py-3" href="https://uwrl.usu.edu/lro/index.php">Logan River Observatory</a>
+            <button class="navbar-toggler custom-toggler" type="button" data-toggle="offcanvas"
+                    aria-label="Open main menu"><span class="sr-only">Open main menu</span><span
+                    class="navbar-toggler-icon"></span></button>
+        </div>
+        <div class="navbar-collapse offcanvas-collapse" id="main-navbar">
+            <div class="offcanvas-header px-2"><a class="p-3 offcanvas-close d-flex align-items-center" role="button"
+                                                  href="#" data-toggle="offcanvas" aria-label="Close main menu"><span><svg
+                    class="svg-inline--fa fa-angle-left fa-w-8 fa-lg mr-2" aria-hidden="true" focusable="false"
+                    data-prefix="fas" data-icon="angle-left" role="img" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 256 512" data-fa-i2svg=""><path fill="currentColor"
+                                                                 d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"></path></svg>
+                <!-- <i class="fas fa-angle-left fa-lg mr-2"></i> Font Awesome fontawesome.com -->Back</span></a><a
+                    class="search-btn ml-auto align-self-center py-0 btn-lg" role="button"
+                    aria-label="Open website search"><span class="sr-only">Open search</span>
+                <svg class="svg-inline--fa fa-search fa-w-16 fa-lg" aria-hidden="true" focusable="false"
+                     data-prefix="fas" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg"
+                     viewBox="0 0 512 512" data-fa-i2svg="">
+                    <path fill="currentColor"
+                          d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path>
+                </svg><!-- <i class="fas fa-search fa-lg"></i> Font Awesome fontawesome.com --></a></div>
+            <ul class="nav navbar-nav">
+                <li class="nav-item dropdown dropdown-hover">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenu3" data-toggle="dropdown" href=""
+                       role="button" aria-haspopup="true" aria-expanded="false">About
+                        <svg class="svg-inline--fa fa-angle-down fa-w-10 fa-lg ml-auto ml-lg-2" aria-hidden="true"
+                             focusable="false" data-prefix="fas" data-icon="angle-down" role="img"
+                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                                  d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path>
+                        </svg>
+                        <!-- <i class="fas fa-lg fa-angle-down ml-auto ml-lg-2"></i> Font Awesome fontawesome.com -->
+                    </a>
+                    <div class="offcanvas-collapse-sub">
+                        <div class="offcanvas-header px-2">
+                            <a class="p-3 offcanvas-back" role="button" href="#" aria-label="Back">
+                                <span><svg class="svg-inline--fa fa-angle-left fa-w-8 fa-lg mr-2" aria-hidden="true"
+                                           focusable="false" data-prefix="fas" data-icon="angle-left" role="img"
+                                           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" data-fa-i2svg=""><path
+                                        fill="currentColor"
+                                        d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"></path></svg>
+                                    <!-- <i class="fas fa-angle-left fa-lg mr-2"></i> Font Awesome fontawesome.com -->Back</span>
+                                <span>About</span>
+                            </a>
+                        </div>
+                        <ul class="dropdown-menu list-unstyled" aria-labelledby="navbarDropdownMenu3">
+                            <li><a class="dropdown-item" href="https://uwrl.usu.edu/lro/about/history.php">History</a></li>
+                            <li><a class="dropdown-item" href="https://uwrl.usu.edu/lro/about/logan-river-information.php">Logan River</a>
+                            </li>
+                            <li><a class="dropdown-item" href="https://uwrl.usu.edu/lro/about/pictures.php">Pictures</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item dropdown dropdown-hover">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenu3" data-toggle="dropdown" href=""
+                       role="button" aria-haspopup="true" aria-expanded="false">People
+                        <svg class="svg-inline--fa fa-angle-down fa-w-10 fa-lg ml-auto ml-lg-2" aria-hidden="true"
+                             focusable="false" data-prefix="fas" data-icon="angle-down" role="img"
+                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                                  d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path>
+                        </svg>
+                        <!-- <i class="fas fa-lg fa-angle-down ml-auto ml-lg-2"></i> Font Awesome fontawesome.com -->
+                    </a>
+                    <div class="offcanvas-collapse-sub">
+                        <div class="offcanvas-header px-2">
+                            <a class="p-3 offcanvas-back" role="button" href="#" aria-label="Back">
+                                <span><svg class="svg-inline--fa fa-angle-left fa-w-8 fa-lg mr-2" aria-hidden="true"
+                                           focusable="false" data-prefix="fas" data-icon="angle-left" role="img"
+                                           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" data-fa-i2svg=""><path
+                                        fill="currentColor"
+                                        d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"></path></svg>
+                                    <!-- <i class="fas fa-angle-left fa-lg mr-2"></i> Font Awesome fontawesome.com -->Back</span>
+                                <span>People</span>
+                            </a>
+                        </div>
+                        <ul class="dropdown-menu list-unstyled" aria-labelledby="navbarDropdownMenu3">
+                            <li><a class="dropdown-item" href="https://uwrl.usu.edu/lro/people/index.php">Faculty</a></li>
+                            <li><a class="dropdown-item" href="https://uwrl.usu.edu/lro/people/research-staff/index.php">Research Staff</a>
+                            </li>
+                            <li><a class="dropdown-item" href="https://uwrl.usu.edu/lro/people/students.php">Students</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://uwrl.usu.edu/lro/partners.php">Partners</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://uwrl.usu.edu/lro/locations.php">Sites &amp; Infrastructure</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://lrodata.usu.edu/">Data</a>
+                </li>
 
+                <li class="nav-item dropdown dropdown-hover">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenu3" data-toggle="dropdown" href=""
+                       role="button" aria-haspopup="true" aria-expanded="false">Research
+                        <svg class="svg-inline--fa fa-angle-down fa-w-10 fa-lg ml-auto ml-lg-2" aria-hidden="true"
+                             focusable="false" data-prefix="fas" data-icon="angle-down" role="img"
+                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                                  d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path>
+                        </svg>
+                        <!-- <i class="fas fa-lg fa-angle-down ml-auto ml-lg-2"></i> Font Awesome fontawesome.com -->
+                    </a>
+                    <div class="offcanvas-collapse-sub">
+                        <div class="offcanvas-header px-2">
+                            <a class="p-3 offcanvas-back" role="button" href="#" aria-label="Back">
+                                <span><svg class="svg-inline--fa fa-angle-left fa-w-8 fa-lg mr-2" aria-hidden="true"
+                                           focusable="false" data-prefix="fas" data-icon="angle-left" role="img"
+                                           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" data-fa-i2svg=""><path
+                                        fill="currentColor"
+                                        d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"></path></svg>
+                                    <!-- <i class="fas fa-angle-left fa-lg mr-2"></i> Font Awesome fontawesome.com -->Back</span>
+                                <span>Research</span>
+                            </a>
+                        </div>
+                        <ul class="dropdown-menu list-unstyled" aria-labelledby="navbarDropdownMenu3">
+                            <li><a class="dropdown-item" href="https://uwrl.usu.edu/lro/research/projects.php">Projects</a></li>
+                            <li><a class="dropdown-item" href="https://uwrl.usu.edu/lro/research/publications.php">Publications</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item dropdown dropdown-hover">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenu3" data-toggle="dropdown" href=""
+                       role="button" aria-haspopup="true" aria-expanded="false">Outreach
+                        <svg class="svg-inline--fa fa-angle-down fa-w-10 fa-lg ml-auto ml-lg-2" aria-hidden="true"
+                             focusable="false" data-prefix="fas" data-icon="angle-down" role="img"
+                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                                  d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path>
+                        </svg>
+                        <!-- <i class="fas fa-lg fa-angle-down ml-auto ml-lg-2"></i> Font Awesome fontawesome.com -->
+                    </a>
+                    <div class="offcanvas-collapse-sub">
+                        <div class="offcanvas-header px-2">
+                            <a class="p-3 offcanvas-back" role="button" href="#" aria-label="Back">
+                                <span><svg class="svg-inline--fa fa-angle-left fa-w-8 fa-lg mr-2" aria-hidden="true"
+                                           focusable="false" data-prefix="fas" data-icon="angle-left" role="img"
+                                           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" data-fa-i2svg=""><path
+                                        fill="currentColor"
+                                        d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"></path></svg>
+                                    <!-- <i class="fas fa-angle-left fa-lg mr-2"></i> Font Awesome fontawesome.com -->Back</span>
+                                <span>Outreach</span>
+                            </a>
+                        </div>
+                        <ul class="dropdown-menu list-unstyled" aria-labelledby="navbarDropdownMenu3">
+                            <li><a class="dropdown-item" href="https://uwrl.usu.edu/lro/resources.php">Educational Resources</a></li>
+                            <li><a class="dropdown-item" href="https://uwrl.usu.edu/lro/outreach.php">Community Outreach</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://uwrl.usu.edu/lro/logan-river-task-force.php">Logan River Task Force</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://uwrl.usu.edu/lro/news/index.php">News</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://uwrl.usu.edu/lro/contact.php">Contact</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav navbar-global py-3">
+                <li class="nav-item dropdown dropdown-hover"><a class="nav-link dropdown-toggle"
+                                                                id="navbarDropdownMenu16" data-toggle="dropdown" href=""
+                                                                role="button" aria-haspopup="true"
+                                                                aria-expanded="false">
+                    <svg class="svg-inline--fa fa-list fa-w-16 mr-2 mb-1" aria-hidden="true" focusable="false"
+                         data-prefix="fas" data-icon="list" role="img" xmlns="http://www.w3.org/2000/svg"
+                         viewBox="0 0 512 512" data-fa-i2svg="">
+                        <path fill="currentColor"
+                              d="M80 368H16a16 16 0 0 0-16 16v64a16 16 0 0 0 16 16h64a16 16 0 0 0 16-16v-64a16 16 0 0 0-16-16zm0-320H16A16 16 0 0 0 0 64v64a16 16 0 0 0 16 16h64a16 16 0 0 0 16-16V64a16 16 0 0 0-16-16zm0 160H16a16 16 0 0 0-16 16v64a16 16 0 0 0 16 16h64a16 16 0 0 0 16-16v-64a16 16 0 0 0-16-16zm416 176H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0-320H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16zm0 160H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"></path>
+                    </svg><!-- <i class="fas fa-list mr-2 mb-1"></i> Font Awesome fontawesome.com -->Quick Links
+                    <svg class="svg-inline--fa fa-angle-right fa-w-8 ml-auto" aria-hidden="true" focusable="false"
+                         data-prefix="fas" data-icon="angle-right" role="img" xmlns="http://www.w3.org/2000/svg"
+                         viewBox="0 0 256 512" data-fa-i2svg="">
+                        <path fill="currentColor"
+                              d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path>
+                    </svg><!-- <i class="fas fa-angle-right ml-auto"></i> Font Awesome fontawesome.com --></a>
+                    <div class="offcanvas-collapse-sub">
+                        <div class="offcanvas-header px-2"><a class="p-3 offcanvas-back" role="button" href="#"
+                                                              aria-label="Back"><span><svg
+                                class="svg-inline--fa fa-angle-left fa-w-8 fa-lg mr-2" aria-hidden="true"
+                                focusable="false" data-prefix="fas" data-icon="angle-left" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" data-fa-i2svg=""><path
+                                fill="currentColor"
+                                d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"></path></svg>
+                            <!-- <i class="fas fa-angle-left fa-lg mr-2"></i> Font Awesome fontawesome.com -->Back</span><span>Quick Links</span></a>
+                        </div>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenu16">
+                            <li><a class="dropdown-item" href="https://www.usu.edu/apply/">Apply</a></li>
+                            <li><a class="dropdown-item" href="https://www.usu.edu/visit/">Visit</a></li>
+                            <li><a class="dropdown-item" href="https://www.usu.edu/giving/">Give</a></li>
+                            <li><a class="dropdown-item" href="https://www.usu.edu/calendar/">Calendar</a></li>
+                            <li><a class="dropdown-item" href="https://www.usu.edu/azindex/">A-Z</a></li>
+                            <li><a class="dropdown-item" href="http://directory.usu.edu/">Directory</a></li>
+                            <li><a class="dropdown-item" href="http://library.usu.edu/">Libraries</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="https://my.usu.edu/" role="link">
+                    <svg class="svg-inline--fa fa-user fa-w-14 mr-2" aria-hidden="true" focusable="false"
+                         data-prefix="fas" data-icon="user" role="img" xmlns="http://www.w3.org/2000/svg"
+                         viewBox="0 0 448 512" data-fa-i2svg="">
+                        <path fill="currentColor"
+                              d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"></path>
+                    </svg><!-- <i class="fas fa-user mr-2"></i> Font Awesome fontawesome.com -->MyUSU</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main role="main" id="content" class="" data-ally-content-id="0" data-ally-webpage="">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 pb-3">
+                <div class="row">
+                    <div class="col-12">
+                        <h1>Data</h1>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-12">
+                    {% block content %}
+                    {% endblock %}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="mt-auto" id="site-footer">
+    <section id="fat-footer" class="bg-blue-dark">
+        <div class="container">
+            <!--  -->
+            <div class="row">
+                <div class="col footer-brand">
+                    <a href="https://uwrl.usu.edu/lro/index.php">Logan River Observatory</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg">
+                    <div class="col-border">
+                        <a class="collapsed" href="#" role="button" aria-expanded="false"
+                           aria-controls="collapse-82825">QUICK LINKS
+                            <svg class="svg-inline--fa fa-caret-down fa-w-10" aria-hidden="true" focusable="false"
+                                 data-prefix="fas" data-icon="caret-down" role="img" xmlns="http://www.w3.org/2000/svg"
+                                 viewBox="0 0 320 512" data-fa-i2svg="">
+                                <path fill="currentColor"
+                                      d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path>
+                            </svg><!-- <i class="fas fa-caret-down"></i> Font Awesome fontawesome.com --></a>
+                    </div>
+                    <div class="collapse" id="collapse-82825">
+                        <ul>
+                            <a href="https://uwrl.usu.edu/lro/partners.php">Partners</a>
+                            <a href="https://uwrl.usu.edu/lro/research/projects.php">Research</a>
+                            <a href="https://uwrl.usu.edu/lro/about/history.php">History</a>
+                            <a href="https://uwrl.usu.edu/lro/contact.php">Contact</a>
+                            <a href="https://uwrl.usu.edu/lro/resources.php">Educational Resources</a>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section id="global-footer" class="bg-blue-darker">
+        <div class="container">
+            <div class="row py-3 py-lg-4">
+                <div class="col-12 col-lg-3 py-3 d-flex align-items-center justify-content-center"><a
+                        href="https://www.usu.edu"><img class="img-fluid m-auto"
+                                                        srcset="https://www.usu.edu/assets/bs4/images/logos/utah-state-logo-350.png 180w,             https://www.usu.edu/assets/bs4/images/logos/utah-state-logo-350.png 200w,             https://www.usu.edu/assets/bs4/images/logos/utah-state-logo-350.png 220w"
+                                                        sizes="(max-width: 575.98px) 180px,(max-width: 767.98px) 200px,220px"
+                                                        src="https://www.usu.edu/assets/bs4/images/logos/utah-state-logo-350.png"
+                                                        alt="Utah State University" title="" style=""></a></div>
+                <div class="col-12 col-lg-9 d-flex flex-row flex-lg-column justify-content-center justify-content-lg-start align-items-start">
+                    <div class="left-list my-lg-1">
+                        <ul role="navigation">
+                            <li><a href="https://www.usu.edu/map/">Maps &amp; Directions</a></li>
+                            <li><a href="https://www.usu.edu/search/">Search USU</a></li>
+                            <li><a href="https://www.usu.edu/campus-life/safety/">Campus Safety</a></li>
+                            <li><a href="https://jobs.usu.edu/">Jobs</a></li>
+                            <li><a href="https://www.usu.edu/contact/">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="right-list">
+                        <ul role="navigation">
+                            <li><a href="https://www.usu.edu/copyright/">Terms of Use</a></li>
+                            <li><a href="https://www.usu.edu/copyright/index.cfm#copyright">Copyright</a></li>
+                            <li><a href="https://www.usu.edu/privacy/">Privacy</a></li>
+                            <li><a href="https://accessibility.usu.edu/">Accessibility</a></li>
+                            <li><a href="https://www.usu.edu/equity/non-discrimination/">Non-Discrimination</a></li>
+                            <li><a role="button" href="javascript:" data-ally-content-ref="0"
+                                   data-ally-invoke="alternativeformats">Alternate Formats</a></li>
+                            <li>
+                                <a id="de"
+                                   href="https://a.cms.omniupdate.com/11/?skin=usu&amp;account=usu&amp;site=UWRL&amp;action=de&amp;path=/lro/research/projects.pcf">Admin</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="alert text-center cookiealert" role="alert"><span class="text-access text-white text-roboto">Utah State University sites use cookies. By continuing to use this site you accept our privacy and cookie policy. <a
+            href="https://www.usu.edu/privacy/" target="_blank">Learn more</a></span>
+        <button type="button" class="btn btn-white acceptcookies m-3" aria-label="Close">
+            I agree
+        </button>
+    </div>
+    <a href="#" id="back-to-top" style="display: none;">
+        <svg class="svg-inline--fa fa-chevron-up fa-w-14" aria-hidden="true" focusable="false" data-prefix="fa"
+             data-icon="chevron-up" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+             data-fa-i2svg="">
+            <path fill="currentColor"
+                  d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"></path>
+        </svg><!-- <i class="fa fa-chevron-up"></i> Font Awesome fontawesome.com --><span class="sr-only">Back to top of the page</span></a>
+</footer>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700&amp;display=swap">
+<link rel="stylesheet" href="https://www.usu.edu/assets/bs4/css/modular.css">
+<script type="text/javascript">
+    /*for disqus comments*/
+    var page_id = "https://uwrl.usu.edu/lro/research/projects.php";
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="https://www.usu.edu/assets/bs4/lib/moment/moment.min-2.21.0.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js?v=14122020"
+        crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/60ddd04f2e.js"></script>
+<script src="https://www.usu.edu/assets/bs4/js/init.js"></script>
+<div id="ally-af-launcher" class="ally-af-launch-container ally-af-style-flag_large">
+    <button data-ally-content-ref="0" data-ally-invoke="alternativeformats"><img class="ally-af-launch-icon-white"
+                                                                                 src="https://prod.ally.ac/static/shared/img/icons/iconAllyDownload-IC-White.9750b42d5d7fe4baf2432a3dc743a1a3.svg"
+                                                                                 alt="" aria-hidden="true"><img
+            class="ally-af-launch-icon-black"
+            src="https://prod.ally.ac/static/shared/img/icons/iconAllyDownload-IC-Black.edde979ad5266d2085fee7571f1af90f.svg"
+            alt="" aria-hidden="true"><span>Download alternative formats ...</span></button>
 </div>
+<script src="https://templateresources.usu.edu/_resources/assets/components/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript">
+    $(".form_datetime").datetimepicker({
+        format: 'mm-dd-yyyy H:ii P',
+        autoclose: 1,
+        showMeridian: 1
+    });
+    $(".form_date").datetimepicker({
+        format: 'mm-dd-yyyy',
+        autoclose: 1,
+        showMeridian: 1,
+        minView: 2,
+        forceParse: 0
+    });
+    $(".form_time").datetimepicker({
+        format: 'H:ii P',
+        autoclose: 1,
+        showMeridian: 1,
+        startView: 1,
+        minView: 0,
+        maxView: 1,
+        forceParse: 0
+    });
+</script>
+<script>
+    $(".pop").popover({animation: false})
+        .on("mouseenter", function () {
+            var _this = this;
+            $(this).popover("show");
+            $(".popover").on("mouseleave", function () {
+                $(_this).popover('hide');
+            });
+        }).on("mouseleave", function () {
+        var _this = this;
+        setTimeout(function () {
+            if (!$(".popover:hover").length) {
+                $(_this).popover("hide");
+            }
+        }, 300);
+    });
+</script>
+<style>
+    .lightbox-video-thumb {
+        position: relative;
+    }
+
+    .lightbox-video-play-symbol {
+        position: absolute;
+        z-index: 2;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0.8;
+    }
+</style>
+<link type="text/css" rel="stylesheet" href="https://usu.edu/assets/bs4/lib/lightgallery/css/lightgallery.css">
+<link type="text/css" rel="stylesheet" href="https://usu.edu/assets/bs4/lib/lightgallery/css/default-gallery.css">
+<script src="https://usu.edu/assets/bs4/lib/lightgallery/js/lightgallery-default.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.lightGallery').each(function (idx, gallery) {
+            var id = ($(gallery).data('galleryId')) + '_' + idx;
+            $(gallery).lightGallery({
+                galleryId: id,
+                googlePlus: false,
+                pinterest: false
+            });
+        });
+    });
+</script>
+<script type="text/javascript" src="https://templateresources.usu.edu/_assets/forms/ouforms.js"></script>
+<script type="text/javascript"
+        src="https://templateresources.usu.edu/_assets/forms/jquery.datetimepicker.full.min.js"></script>
+
 {% block scripts %}
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 {% endblock %}
+
+<iframe name="_hjRemoteVarsFrame" title="_hjRemoteVarsFrame" id="_hjRemoteVarsFrame"
+        src="https://vars.hotjar.com/box-469cf41adb11dc78be68c1ae7f9457a4.html"
+        style="display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;"></iframe>
+<div id="ally-af-launcher" class="ally-af-launch-container ally-af-style-flag_large">
+    <button data-ally-content-ref="0" data-ally-invoke="alternativeformats">
+        <img class="ally-af-launch-icon-white"
+             src="https://prod.ally.ac//static/shared/img/icons/iconAllyDownload-IC-White.9750b42d5d7fe4baf2432a3dc743a1a3.svg"
+             alt="" aria-hidden="true">
+        <img class="ally-af-launch-icon-black"
+             src="https://prod.ally.ac//static/shared/img/icons/iconAllyDownload-IC-Black.edde979ad5266d2085fee7571f1af90f.svg"
+             alt="" aria-hidden="true">
+        <span>Download alternative formats ...</span>
+    </button>
+</div>
 </body>
+<div id="__genieContainer" style="all: initial;"></div>
 </html>

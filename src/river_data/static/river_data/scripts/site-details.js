@@ -175,6 +175,8 @@ $(document).ready(function () {
         var variableDataset = variables[index].dataset;
         getTimeSeriesData(variableDataset);
     }
+
+    $('[data-toggle="tooltip"]').tooltip()
 });
 
 function getMax(arr) {
