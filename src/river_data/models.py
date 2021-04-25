@@ -48,6 +48,10 @@ class Series(models.Model):
     def influx_values_url(self) -> str:
         return settings.GET_VALUES_SERVICE.format(series_identifier=self.identifier)
 
+    @property
+    def influx_measurement(self) -> str:
+        return f'{settings.INFLUXDB_PREFIX}_{self.identifier}'
+
     def __str__(self) -> str:
         return f'{self.variable_code}'
 

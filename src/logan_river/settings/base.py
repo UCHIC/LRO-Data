@@ -156,6 +156,29 @@ SITE_ID = 1
 # Logan River Specific Configuration
 
 WATERSHED = config['watershed']
+
+INFLUXDB_DICT = config.get('influxdb')
+INFLUXDB_USER = INFLUXDB_DICT.get('user')
+INFLUXDB_PASSWORD = INFLUXDB_DICT.get('password')
+INFLUXDB_DATABASE = INFLUXDB_DICT.get('database_name')
+INFLUXDB_PREFIX = INFLUXDB_DICT.get('measurement_prefix')
+INFLUXDB_QUERY_URL = INFLUXDB_DICT.get('query_url')
+INFLUX_VALUES_QUERY = INFLUXDB_DICT.get('values_query').format(
+    user=INFLUXDB_USER,
+    password=INFLUXDB_PASSWORD,
+    database=INFLUXDB_DATABASE,
+    prefix=INFLUXDB_PREFIX,
+    series_identifier='{series_identifier}'
+)
+INFLUX_DELETE_QUERY = INFLUXDB_DICT.get('delete_query').format(
+    user=INFLUXDB_USER,
+    password=INFLUXDB_PASSWORD,
+    database=INFLUXDB_DATABASE,
+    prefix=INFLUXDB_PREFIX,
+    series_identifier='{series_identifier}'
+)
+
 GET_SITES_SERVICE = config['waterml_service_urls']['get_sites']
 GET_SITE_INFO_SERVICE = config['waterml_service_urls']['get_site_info']
-GET_VALUES_SERVICE = config['influxdb_values_url']
+GET_VALUES_SERVICE = f'{INFLUXDB_QUERY_URL}?{INFLUX_VALUES_QUERY}'
+DELETE_VALUES_SERVICE = f'{INFLUXDB_QUERY_URL}?{INFLUX_DELETE_QUERY}'

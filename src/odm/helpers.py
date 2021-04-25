@@ -1,12 +1,13 @@
 from typing import Dict
 
+import requests
 from django.conf import settings
 
 from odm.models import ODMSite, ODMSeries, ODMUnit
 from river_data.models import Site, Series
 
 
-class SiteDataHelper(object):
+class SiteDataHelper:
     watershed: str = settings.WATERSHED
     units: Dict[int, ODMUnit] = ODMUnit.objects.in_bulk()
 
@@ -71,6 +72,23 @@ class SiteDataHelper(object):
                 continue
             existing_series = site.series.filter(odm_series_id=odm_series.series_id).first()
             self.copy_series_data(site, odm_series, existing_series).save()
+
+
+class InfluxDataHelper:
+    delete_query_url: str = settings.DELETE_VALUES_SERVICE
+
+    def __init__(self):
+        self.user = settings.INFLUXDB_USER
+        self.password = settings.INFLUXDB_PASSWORD
+        self.database = settings.INFLUXDB_DATABASE
+
+    def delete_site_data(self, site: Site):
+        site_series = site.series.all()
+        for series in site_series:
+            self.delete_measurement_data(series.identifier)
+
+    def delete_measurement_data(self, identifier: str):
+        requests.get(self.delete_query_url.format(series_identifier=identifier))
 
 
 def is_raw_quality(quality_code: str) -> bool:

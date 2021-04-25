@@ -1,0 +1,43 @@
+{
+  "secret_key": "{string: django secret key}",
+  "host": "{string: server domain name}",
+  "static_root": "{string: static files root path}",
+  "media_root": "{string: media files root path}",
+  "site_root": "{string: project base path}",
+  "static_url": "{string: static files url}",
+  "waterml_service_urls": {
+    "get_sites": "{string: get_sites waterml service endpoint}",
+    "get_site_info": "{string: get_sites waterml service endpoint} placeholders: {site_code}"
+  },
+  "influxdb": {
+    "query_url": "{string: influxdb query endpoint}",
+    "user": "{string: influxdb username}",
+    "password": "{string: influxdb password}",
+    "database_name": "{string: influxdb database name}",
+    "measurement_prefix": "{string: prefix for each measurement}",
+    "values_query": "{string: influxdb url parameters to get values of a measurement} placeholders: {user} {password} {database} {prefix} {series_identifier}",
+    "delete_query": "{string: influxdb url parameters to delete values of a measurement} placeholders: {user} {password} {database} {prefix} {series_identifier}"
+  },
+  "databases": [
+    {
+      "name": "default",
+      "schema": "{string: default database name}",
+      "engine": "{string: default database engine} (e.g. django.db.backends.mysql)",
+      "user": "{string: default database username}",
+      "password": "{string: default database password}",
+      "host": "{string: default database server name or ip} (e.g. localhost)",
+      "port": "{string: default database connection port} (e.g. 3306)"
+    },
+    {
+      "name": "odm",
+      "schema": "{string: vocabularies database name}",
+      "engine": "{string: vocabularies database engine} (e.g. django.db.backends.mysql)",
+      "user": "{string: vocabularies database username}",
+      "password": "{string: vocabularies database password}",
+      "host": "{string: vocabularies database server name or ip} (e.g. localhost)",
+      "port": "{int: vocabularies database connection port} (e.g. 3306)",
+      "options": "{dict: dictionary with database connection options}"
+    }
+  ],
+  "watershed": "{Watershed name}"
+}
