@@ -1,7 +1,9 @@
-from typing import Dict
+from typing import Dict, List
 
 import requests
 from django.conf import settings
+from django.http import HttpResponse
+from requests import Response
 
 from odm.models import ODMSite, ODMSeries, ODMUnit
 from river_data.models import Site, Series
@@ -84,11 +86,14 @@ class InfluxDataHelper:
 
     def delete_site_data(self, site: Site):
         site_series = site.series.all()
-        for series in site_series:
-            self.delete_measurement_data(series.identifier)
+        series_responses: Dict[str, Response] = {
+            series.identifier: self.delete_measurement_data(series.identifier)
+            for series in site_series
+        }
+        return series_responses
 
     def delete_measurement_data(self, identifier: str):
-        requests.get(self.delete_query_url.format(series_identifier=identifier))
+        return requests.get(self.delete_query_url.format(series_identifier=identifier))
 
 
 def is_raw_quality(quality_code: str) -> bool:
