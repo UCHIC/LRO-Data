@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from django.urls import path
 
 from odm.helpers import SiteDataHelper, InfluxDataHelper
+from odm.models import ODMSite
 from river_data.models import Site, Series, SitePhoto
 
 
@@ -48,7 +49,9 @@ class SiteAdmin(admin.ModelAdmin):
 
     def clear_site_data(self, request, sites):
         influx_helper: InfluxDataHelper = InfluxDataHelper()
-        for site in sites:
+        site_codes = list(sites.values_list('site_code', flat=True))
+        odm_sites = ODMSite.objects.filter(site_code__in=site_codes)
+        for site in odm_sites:
             influx_helper.delete_site_data(site)
         self.message_user(request, f"Influx data deleted for sites: {list(sites)}")
 

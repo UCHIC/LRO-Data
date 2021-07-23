@@ -3,7 +3,7 @@ import logging
 from django.core.management import BaseCommand
 
 from odm.helpers import InfluxDataHelper
-from river_data.models import Site
+from odm.models import ODMSite
 
 logger: logging.Logger = logging.getLogger(__name__)
 
@@ -20,7 +20,7 @@ class Command(BaseCommand):
 
         for site_code in individual_sites:
             helper: InfluxDataHelper = InfluxDataHelper()
-            site = Site.objects.filter(site_code=f'{site_code}').first()
+            site = ODMSite.objects.filter(site_code=f'{site_code}').first()
             if not site:
                 logger.warning(f'site {site_code} was not found in the database')
                 continue

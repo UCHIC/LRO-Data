@@ -41,8 +41,7 @@ class SiteDataHelper:
         series.unit_name = odm_series.unit_name
         series.unit_abbreviation = self.units[odm_series.unit_id].unit_abbreviation
         series.sampled_medium = odm_series.sampled_medium
-        series.identifier = f'{site.site_code}_{odm_series.variable_code}_' \
-                            f'{odm_series.quality_control_level_id}_{odm_series.source_id}_{odm_series.method_id}'
+        series.identifier = odm_series.identifier
         return series
 
     def sync_sites_list(self) -> None:
@@ -58,9 +57,7 @@ class SiteDataHelper:
             for odm_series in odm_site.odm_series.all():
                 if not is_raw_quality(odm_series.quality_control_level_code):
                     continue
-                odm_series_key = f'{odm_series.site_id.site_id}_{odm_series.variable_id}_{odm_series.method_id}_' \
-                                 f'{odm_series.source_id}_{odm_series.quality_control_level_id}'
-                existing_series = site.series.filter(odm_series_key=odm_series_key).first()
+                existing_series = site.series.filter(odm_series_key=odm_series.identifier).first()
                 self.copy_series_data(site, odm_series, existing_series).save()
 
     def sync_individual_site(self, site: Site) -> None:
@@ -84,8 +81,8 @@ class InfluxDataHelper:
         self.password = settings.INFLUXDB_PASSWORD
         self.database = settings.INFLUXDB_DATABASE
 
-    def delete_site_data(self, site: Site):
-        site_series = site.series.all()
+    def delete_site_data(self, site: ODMSite):
+        site_series = site.odm_series.all()
         series_responses: Dict[str, Response] = {
             series.identifier: self.delete_measurement_data(series.identifier)
             for series in site_series

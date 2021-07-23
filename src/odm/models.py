@@ -43,6 +43,11 @@ class ODMSeries(models.Model):
         db_table = 'SeriesCatalog'
         managed = False
 
+    @property
+    def identifier(self) -> str:
+        return f'{self.site_code}_{self.variable_code}_' \
+               f'{self.quality_control_level_id}_{self.source_id}_{self.method_id}'
+
 
 class ODMUnit(models.Model):
     unit_id = models.IntegerField(primary_key=True, db_column='UnitsID')
